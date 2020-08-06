@@ -14,7 +14,7 @@ import static dh.krometen.ServDir.DIRECTORY;
 public class GetNamesOfAllFiles{
     @RequestMapping(value="/GetNamesOfAllFiles", method= RequestMethod.GET)
     public @ResponseBody
-    String GetNamesOfAllFiles(){
+    String getNamesOfAllFiles(){
         File folder = new File(DIRECTORY);
 
         final String[] extension = {""/*No filter by extension*/};

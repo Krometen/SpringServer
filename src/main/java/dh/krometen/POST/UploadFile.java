@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import static dh.krometen.ServDir.DIRECTORY;
+
 @Controller
 public class UploadFile {
-    //server fs
-    public final String SERVER_PATH = "/home/dess/all/serv/";
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
     public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
@@ -25,10 +25,10 @@ public class UploadFile {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
                         new BufferedOutputStream(new FileOutputStream(new File(
-                                SERVER_PATH+name)));
+                                DIRECTORY+name)));
                 stream.write(bytes);
                 stream.close();
-                return "Вы удачно загрузили " + name + " в " + SERVER_PATH+name;
+                return "Вы удачно загрузили " + name + " в " + DIRECTORY+name;
             } catch (Exception e) {
                 return "Вам не удалось загрузить " + name + " => " + e.getMessage();
             }

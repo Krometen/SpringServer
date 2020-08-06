@@ -28,12 +28,12 @@ public class UploadFile {
                                 DIRECTORY+name)));
                 stream.write(bytes);
                 stream.close();
-                return "Вы удачно загрузили " + name + " в " + DIRECTORY+name;
+                return "You have successfully uploaded the " + name + " in " + DIRECTORY + name;
             } catch (Exception e) {
-                return "Вам не удалось загрузить " + name + " => " + e.getMessage();
+                return "You failed to load " + name + " => " + e.getMessage();
             }
         } else {
-            return "Вам не удалось загрузить " + name + " потому что файл пустой.";
+            return "You failed to load " + name + " because the file is empty.\n";
         }
     }
 }

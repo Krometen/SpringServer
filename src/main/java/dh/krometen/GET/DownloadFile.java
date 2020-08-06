@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import static dh.krometen.ServDir.DIRECTORY;
 
 @Controller
-public class GetFile {
+public class DownloadFile {
 
     @RequestMapping(value="/Download", method=RequestMethod.GET)
     public ResponseEntity<InputStreamResource> downloadFile(

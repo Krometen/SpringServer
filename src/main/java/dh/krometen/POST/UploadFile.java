@@ -13,21 +13,22 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class UploadFile {
+    //server fs
+    public final String SERVER_PATH = "/home/dess/all/serv/";
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
     public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
                                                  @RequestParam("file") MultipartFile file){
-        //server fs
-        String path = "/home/dess/all/serv/";
+
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
                         new BufferedOutputStream(new FileOutputStream(new File(
-                                path+name)));
+                                SERVER_PATH+name)));
                 stream.write(bytes);
                 stream.close();
-                return "Вы удачно загрузили " + name + " в " + path+name;
+                return "Вы удачно загрузили " + name + " в " + SERVER_PATH+name;
             } catch (Exception e) {
                 return "Вам не удалось загрузить " + name + " => " + e.getMessage();
             }

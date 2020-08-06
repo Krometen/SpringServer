@@ -17,7 +17,7 @@ import static dh.krometen.ServDir.DIRECTORY;
 @Controller
 public class GetFile {
 
-    @RequestMapping(value="/download", method=RequestMethod.GET)
+    @RequestMapping(value="/Download", method=RequestMethod.GET)
     public ResponseEntity<InputStreamResource> downloadFile(
             @RequestParam(value="fileName", required = false) String fileName) throws IOException {
 
